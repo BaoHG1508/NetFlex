@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:netflex/Widgets/HomePage/HomePage/Netflex.dart';
 import 'package:netflex/Widgets/HomePage/VideoPlayerWidget/VideoPlayer.dart';
 import 'package:netflex/constants/constants.dart';
-import 'package:netflex/services/controller/movie_controller.dart';
-import 'package:netflex/services/controller/url_controller.dart';
+import 'package:netflex/controller/movie_controller.dart';
+import 'package:netflex/controller/url_controller.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:video_player/video_player.dart';
 

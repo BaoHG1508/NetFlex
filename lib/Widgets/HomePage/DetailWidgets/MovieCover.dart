@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:netflex/services/controller/movie_controller.dart';
+import 'package:netflex/controller/movie_controller.dart';
 
 class MovieCover extends StatelessWidget {
 

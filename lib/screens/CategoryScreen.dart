@@ -6,8 +6,8 @@ import 'package:netflex/Models/MovieModel.dart';
 import 'package:netflex/constants/constants.dart';
 import 'package:netflex/screens/DetailScreen.dart';
 import 'package:netflex/screens/SearchScreen.dart';
-import 'package:netflex/services/controller/movie_controller.dart';
-import 'package:netflex/services/controller/url_controller.dart';
+import 'package:netflex/controller/movie_controller.dart';
+import 'package:netflex/controller/url_controller.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CategoryScreen extends StatefulWidget {

@@ -6,7 +6,7 @@ import 'package:netflex/Models/MovieModel.dart';
 import 'package:netflex/screens/DetailScreen.dart';
 import 'package:netflex/screens/Selecting_Screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:netflex/services/controller/movie_controller.dart';
+import 'package:netflex/controller/movie_controller.dart';
 import 'dart:math';
 
 
@@ -32,7 +32,7 @@ class _AppSliderState extends State<AppSlider> {
   void getItem() async {
     await movieController.movie.then((value) => (setState(() {
       for (var i = 0; i < 5; i++) {
-        var index = Random().nextInt(100);
+        var index = Random().nextInt(80)+20;
         sliderMovie_image.add(value.phim.phimle[index].imageUrl);
         sliderMovie_title.add(value.phim.phimle[index].title);
         sliderMovie_category.add(value.phim.phimle[index].category);
@@ -49,52 +49,55 @@ class _AppSliderState extends State<AppSlider> {
         enlargeCenterPage: true,
       ),
       items: sliderMovie_image
-          .map((item) => TextButton(
+          .map((item) => Hero(
+            tag: sliderMovie_image[sliderMovie_image.indexOf(item)],
+            child: TextButton(
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(image: sliderMovie_image[sliderMovie_image.indexOf(item)],title: sliderMovie_title[sliderMovie_image.indexOf(item)],category: sliderMovie_category[sliderMovie_image.indexOf(item)],)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(image: sliderMovie_image[sliderMovie_image.indexOf(item)],title: sliderMovie_title[sliderMovie_image.indexOf(item)],category: sliderMovie_category[sliderMovie_image.indexOf(item)],)));
         },
         child: Container(
-          child: Container(
-            margin: EdgeInsets.all(3.0),
-            child: ClipRRect(
-                borderRadius:
-                BorderRadius.all(Radius.circular(5.0)),
-                child: Stack(
-                  children: <Widget>[
-                    Image.network(item,
-                        fit: BoxFit.cover, width: 1000.0),
-                    Positioned(
-                      bottom: 0.0,
-                      left: 0.0,
-                      right: 0.0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(200, 0, 0, 0),
-                              Color.fromARGB(0, 0, 0, 0)
-                            ],
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
+            child: Container(
+              margin: EdgeInsets.all(3.0),
+              child: ClipRRect(
+                  borderRadius:
+                  BorderRadius.all(Radius.circular(5.0)),
+                  child: Stack(
+                    children: <Widget>[
+                      Image.network(item,
+                          fit: BoxFit.cover, width: 1000.0),
+                      Positioned(
+                        bottom: 0.0,
+                        left: 0.0,
+                        right: 0.0,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color.fromARGB(200, 0, 0, 0),
+                                Color.fromARGB(0, 0, 0, 0)
+                              ],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                            ),
                           ),
-                        ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 10.0),
-                        child: Text(
-                          '${sliderMovie_title[sliderMovie_image.indexOf(item)]}',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 10.0),
+                          child: Text(
+                            '${sliderMovie_title[sliderMovie_image.indexOf(item)]}',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                )),
-          ),
+                    ],
+                  )),
+            ),
         ),
-      ))
+      ),
+          ))
           .toList(),
     );
   }

@@ -8,3 +8,10 @@ var kGap10 = 10.heightBox;
 var kGap20 = 20.heightBox;
 var screenHeight = double.infinity;
 var screenWidth = double.infinity;
+var appGradient = LinearGradient(
+  begin: Alignment.topLeft,
+    end: Alignment.bottomCenter,
+    colors: [
+  Color(0xff232526),
+  Color(0xff414345),
+]);

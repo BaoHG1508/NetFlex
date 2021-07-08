@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:netflex/constants/constants.dart';
 import 'package:netflex/screens/DetailScreen.dart';
-import 'package:netflex/services/controller/list_controller.dart';
-import 'package:netflex/services/controller/movie_controller.dart';
+import 'package:netflex/controller/movie_controller.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class FilmSearcher extends SearchDelegate<String> {
